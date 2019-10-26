@@ -12,6 +12,7 @@ const comments = require('./typicode/comments');
 
 // Initializing the express app
 const app = express();
+const port = process.env.PORT || 5000;
 
 // Setting up the Static Assets folder
 const staticAssetDir = path.join(__dirname, '../public');
@@ -101,6 +102,6 @@ app.get('/comments', (req,res) => {
 })
 
 // Starting the Server
-app.listen(3000, () => {
-    console.log('Server running on port 3000....!');
+app.listen(port, () => {
+    console.log('Server running on port ...!', port);
 })
