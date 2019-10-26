@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Users Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    {{>navigation}}
+    {{#if error}}
+    <div class="container-fluid error-msg">
+        {{>error}}
+    </div>
+    {{else}}
+        <div class="jumbotron text-center">
+            <h1>{{user.name}}</h1>
+            <p>Here you can see the posts of <strong>{{user.name}}</strong>...!</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Post</h2>
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.body}}</p>
+                </div>
+                <div class="col-md-8">
+                    <h2>Comments</h2>
+                    {{#each comments}}
+                        <div class="row">
+                            <h3>{{this.name}}</h3>
+                            <p>{{this.body}}</p>
+                        </div>
+                    {{/each}}                    
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    {{>footer}}
+</body>
+
+</html>
